@@ -26,10 +26,23 @@ const AddEventForm = () => {
     }
 
     try {
+      // API URL is taken from environment variables
+      const API_URL = process.env.REACT_APP_API_URL;
+
       // Send the event data to the backend
-      await axios.post('process.env.REACT_APP_API_URL', event);
-      alert('Event added successfully');
-      setEvent({ name: '', date: '', location: '', category: '' }); // Reset the form after successful submission
+      await axios.post(`${API_URL}/events`, event)
+        .then(res => {
+          console.log("Event added:", res.data);
+          alert('Event added successfully');
+        })
+        .catch(err => {
+          console.error("Error adding event", err);
+          alert('Error adding event');
+        });
+
+      // Reset the form after successful submission
+      setEvent({ name: '', date: '', location: '', category: '' });
+
     } catch (error) {
       console.log('Error adding event:', error.response?.data || error.message);
       alert('Error adding event');
@@ -88,3 +101,4 @@ const AddEventForm = () => {
 };
 
 export default AddEventForm;
+
