@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import AddEventForm from './AddEventForm'; // Make sure to import the AddEventForm component
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Event Platform</h1>
+      <p>Welcome to the Event Platform! Add your events here:</p>
+      {/* Render the AddEventForm */}
+      <AddEventForm />
     </div>
   );
 }
 
 export default App;
+
+
+
+
+
+
+
