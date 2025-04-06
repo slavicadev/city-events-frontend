@@ -27,7 +27,7 @@ const AddEventForm = () => {
 
     try {
       // Send the event data to the backend
-      await axios.post('http://localhost:4000/events', event);
+      await axios.post('process.env.REACT_APP_API_URL', event);
       alert('Event added successfully');
       setEvent({ name: '', date: '', location: '', category: '' }); // Reset the form after successful submission
     } catch (error) {
